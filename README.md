@@ -1,1 +1,3 @@
-# swift-utility
+# SwiftUtility
+
+A description of this package.
