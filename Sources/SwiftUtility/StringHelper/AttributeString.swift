@@ -24,8 +24,8 @@ extension String {
         let attribute = configs.attributeDictionary
         return NSAttributedString(string: self, attributes: attribute)
     }
-    public func attribute(configs: AttributeTextConfig...) -> NSAttributedString {
-        return attribute(configs)
+    public func attribute(cfs: AttributeTextConfig...) -> NSAttributedString {
+        return attribute(cfs)
     }
 }
 
@@ -81,8 +81,8 @@ extension NSAttributedString {
     @discardableResult
     public func specialAttribute(forStrings dict: [String: [AttributeTextConfig]]) -> NSAttributedString {
         let self_mutation = NSMutableAttributedString(attributedString: self)
-        let text = self_mutation.string
         for (key, val) in dict {
+            let text = self_mutation.string
             let ranges = text.nsranges(of: key)
             ranges.forEach {
                 self_mutation.setAttributes(val.attributeDictionary, range: $0)
